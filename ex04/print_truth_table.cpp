@@ -31,9 +31,15 @@ std::string substitute_variables(std::string formula, std::string variables, uns
 
 void print_header(std::string variables) //O(n)
 {
+    int n = variables.size();
+    
     for (char c : variables)
         std::cout << " | " << c;
-    std::cout << " | = | \n";
+    std::cout << " | = | \n ";
+    while(n-- >= 0)
+        std::cout << "|---";
+    std::cout << "|\n";
+
 }
 
 void print_row(unsigned combination, bool result, size_t max_value)
