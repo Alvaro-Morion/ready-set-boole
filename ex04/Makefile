@@ -1,10 +1,10 @@
-SRCS		=	eval_formula.cpp main.cpp
+SRCS		=	../ex03/eval_formula.cpp print_truth_table.cpp main.cpp
 
 INCL 		= rsb.h
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	eval_formula
+NAME		=	truth_table
 
 CC			=	c++
 

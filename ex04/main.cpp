@@ -10,16 +10,6 @@ int	main(int argc, char **argv)
 		return 1;
 	}
 	std::string proposition(argv[1]);
-	bool result;
-	try
-	{
-		result = eval_formula(proposition);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Invalid proposition" << '\n';
-		return(1);
-	}
-	std::cout << "Result: " << result << std::endl;
+	print_truth_table(proposition);
 	return (0);
 }
