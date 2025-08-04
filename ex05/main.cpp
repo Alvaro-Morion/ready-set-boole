@@ -10,11 +10,13 @@ int	main(int argc, char **argv)
 	std::string proposition(argv[1]);
 	try
     {
-		print_truth_table(proposition);
+		std::cout << negation_normal_form(proposition) << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << "Invalid proposition \n";
     }
+	
+
 	return (0);
 }

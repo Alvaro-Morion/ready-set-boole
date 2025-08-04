@@ -1,4 +1,3 @@
-#include <vector>
 #include "../inc/rsb.h"
 
 std::string get_variables(std::string formula)
@@ -60,15 +59,7 @@ void print_truth_table(std::string formula)
     std::string new_formula;
     unsigned max_size = 1 << variables.size();
     bool result;
-    try
-    {
-        eval_formula(substitute_variables(formula, variables, 0)); //O(1)
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "Invalid proposition \n";
-        return;
-    }
+    eval_formula(substitute_variables(formula, variables, 0)); //O(1)
     print_header(variables); //O(n)
     for (combination = 0; combination < max_size; ++combination) //O(2^n)
     {

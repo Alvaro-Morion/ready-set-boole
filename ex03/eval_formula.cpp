@@ -1,4 +1,3 @@
-#include <stack>
 #include "../inc/rsb.h"
 
 static void insert_number(std::stack<bool> *stack, char character)
