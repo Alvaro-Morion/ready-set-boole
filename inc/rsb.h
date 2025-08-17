@@ -14,6 +14,7 @@ unsigned int    gray_code(unsigned int a);
 unsigned int    multiplier(unsigned int a, unsigned int b);
 std::string     negation_normal_form(std::string rpn);
 void            print_truth_table(std::string formula);
+bool		sat(std::string formula);
 std::string     substitute_variables(std::string formula, std::string variables, unsigned combination);
 
 #endif
