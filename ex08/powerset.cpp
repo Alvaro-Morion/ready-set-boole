@@ -1,22 +1,14 @@
 # include "../inc/rsb.h"
 
 
-void new_subset(std::vector<int> set, std::vector<std::vector<int>> &superset)
+void new_subset(std::vector<int> set, std::vector<int> current, std::vector<std::vector<int>> &superset, unsigned idx = 0)
 {
-    // std::cout << "Call with vector: [";
-    // for (int i : set)
-    //     std::cout << i << ", ";
-    // std::cout << "]\n";
-    
-    std::vector<int> subset = set;
-    superset.push_back(set);
-    //std::cout << "push back: " << level << std::endl;
-    for (unsigned i = 0; i < set.size(); i++)
+    superset.push_back(current);
+    for (unsigned i = idx; i < set.size(); i++)
     {
-        //std::cout << "Level: " << level << " Index: " << i << std::endl;
-        subset = set;
-        subset.erase(subset.begin() + i);
-        new_subset(subset, superset);
+        current.push_back(set[i]);
+        new_subset(set, current, superset, i + 1);
+        current.pop_back();
     }
 }
 
@@ -24,6 +16,7 @@ void new_subset(std::vector<int> set, std::vector<std::vector<int>> &superset)
 std::vector<std::vector<int>> powerset(std::vector<int> set)
 {
     std::vector<std::vector<int>> pset;
-    new_subset(set, pset);
+    std::vector<int> current;
+    new_subset(set, current, pset); //O2^n
     return pset;
 }
