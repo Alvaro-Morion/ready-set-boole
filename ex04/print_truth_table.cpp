@@ -9,6 +9,7 @@ std::string get_variables(std::string formula)
             variables += *it;
         
     }
+    std::sort(variables.begin(), variables.end());
     return variables;
 }
 
