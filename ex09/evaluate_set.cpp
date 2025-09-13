@@ -1,9 +1,69 @@
 #include "../inc/rsb.h"
 
-std::set<int> evauate_set_expression(std::string proposition, std::map<char, std::set<int>)
+std::set<int> ft_union(std::set<int> a, std::set<int> b)
+{
+    std::set<int> result;
+    result.insert(a.begin(), a.end());
+    result.insert(b.begin(), b.end());
+    return result;
+}
+
+std::set<int> ft_intersection(std::set<int> a, std::set<int> b)
+{
+    std::set<int> result;
+    for (auto i : a)
+        if (b.count(i))
+            result.insert(i);
+    return result;
+}
+
+std::set<int> ft_complement(std::set<int> a, std::set<int> global_set)
+{
+    std::set<int> result(global_set);
+    for (auto i : a)
+        result.erase(i);
+    return result;
+}
+std::set<int> evaluate_set_expression(std::string proposition, std::map<char, std::set<int>> var_set_map)
 {
     std::stack<std::set<int>> stack;
-    //Define global set for negation
+    std::set<int> global_set;
+   
+    for (auto i : var_set_map)
+        global_set.insert(i.second.begin(), i.second.end());
+    
+    for (auto c : proposition)
+    {
+        if (isalpha(c))
+            stack.push(var_set_map[c]);
+        else
+        {
+            std::set<int> a = stack.top(); stack.pop();
+            switch (c)
+            {
+                case ('|'):
+                {
+                    std::set<int> b = stack.top(); stack.pop();
+                    stack.push(ft_union(a, b));
+                    break;
+                }
+                case ('&'):
+                {
+                    std::set<int> b = stack.top(); stack.pop();
+                    stack.push(ft_intersection(a,b));
+                    break;
+                }
+                case ('!'):
+                {
+                    stack.push(ft_complement(a, global_set));
+                    break;
+                }
+
+
+            }
+        }
+    }
+    return stack.top();
 
 }
 

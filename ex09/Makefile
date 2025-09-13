@@ -1,4 +1,4 @@
-SRCS		=	main.cpp ../ex04/print_truth_table.cpp ../ex03/eval_formula.cpp ../ex05/negation_normal_form.cpp
+SRCS		=	evaluate_set.cpp main.cpp ../ex04/print_truth_table.cpp ../ex03/eval_formula.cpp ../ex05/negation_normal_form.cpp
 
 INCL 		= rsb.h
 

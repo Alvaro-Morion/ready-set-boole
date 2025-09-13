@@ -38,11 +38,11 @@ int	main(int argc, char **argv)
 		return(1);
 	}
 
-	// std::vector<int> result = evaluate_set(proposition, sets);
+	result = eval_set(proposition, sets);
 	
-	// std::cout << "[ ";
-	// for (int i : result)
-	// 	std::cout << i << " ";
-	// std::cout << "]" << std::endl;
+	std::cout << "[ ";
+	for (int i : result)
+		std::cout << i << " ";
+	std::cout << "]" << std::endl;
 	return (0);
 }
