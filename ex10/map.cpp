@@ -1,6 +1,7 @@
-double ft_map(unsigned x, unsigned y)
+#include "../inc/rsb.h"
+double ft_map(uint16_t x, uint16_t y)
 {
-    unsigned long long value = static_cast<unsigned long long>(x) << sizeof(unsigned)  | y;
-    double result = static_cast<double>(value) / (1ULL << 32);
-    return result;
+    uint32_t combined = (static_cast<uint32_t>(x) << 16) | y;
+
+    return static_cast<double>(combined) / ((1ULL << 32) - 1);
 }

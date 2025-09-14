@@ -29,7 +29,10 @@ int	main(int argc, char **argv)
 	{
 		uint16_t x = get_number(argv[1]);
 		uint16_t y = get_number(argv[2]);
-		std::cout << "Point (" << x << "," << y << ") = " << ft_map(x,y) << std::endl;
+		double result = ft_map(x,y);
+		std::cout << "Point (" << x << "," << y << ") = " << result << std::endl;
+		std::vector<uint16_t> inverse = inverse_map(result);
+		std::cout << "Value " << result << " = " << "(" << inverse[0] << "," << inverse[1] << ")" << std::endl;
 	}
 	catch (std::exception e)
 	{
