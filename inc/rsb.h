@@ -12,8 +12,9 @@
 unsigned int	                adder(unsigned int a, unsigned int b);
 std::string                     conjunctive_normal_form(std::string formula);
 bool                            eval_formula(std::string proposition);
-std::vector<int>                   eval_set(std::string proposition, std::vector<std::vector<int>> sets);
+std::vector<int>                eval_set(std::string proposition, std::vector<std::vector<int>> sets);
 std::string                     extract_variable(std::stack<std::string> &formula);
+double                          ft_map(unsigned x, unsigned y);
 std::string                     get_variables(std::string formula);
 unsigned int                    gray_code(unsigned int a);
 unsigned int                    multiplier(unsigned int a, unsigned int b);

@@ -30,7 +30,7 @@ std::set<int> evaluate_set_expression(std::string proposition, std::map<char, st
     std::set<int> global_set;
    
     for (auto i : var_set_map)
-        global_set.insert(i.second.begin(), i.second.end());
+        global_set = ft_union(global_set, i.second);
     
     for (auto c : proposition)
     {
