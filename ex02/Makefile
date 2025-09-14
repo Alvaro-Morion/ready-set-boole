@@ -4,7 +4,7 @@ INCL 		= rsb.h
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	eval_formula
+NAME		=	gray_code
 
 CC			=	c++
 
